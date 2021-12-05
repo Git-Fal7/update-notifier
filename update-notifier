@@ -84,16 +84,7 @@ fi
 if ((nb_pac>0 || nb_aur>0)); then
   ((nb_aur>0)) && nb_aur="+ ${nb_aur}" && cat /tmp/aurupdates >> /tmp/pacmanupdates
   ((nb_aur==0)) && unset nb_aur
-  answer=$(dunstify "You have ${nb_pac} ${nb_aur} updates" \
-		"$(cat /tmp/pacmanupdates)" -A Y,"Update now" -A N,Later)
-    case $answer in
-      Y) $TERMINAL -e update-help
-        ;;
-    	N)
-				;;
-			*) echo "'$answer' no match" 1>&2
-				;;
-    esac
+  notify-send "You have ${nb_pac} ${nb_aur} updates"
 else
   dunstify "Your system is up to date" "No packages to update"
 fi
