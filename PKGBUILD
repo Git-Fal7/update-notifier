@@ -1,4 +1,4 @@
-pkgname=update-notifier
+pkgname=update-notifier-hyphen
 pkgver=0.7.7
 pkgrel=4
 pkgdesc="A simple pacman update notifier"
